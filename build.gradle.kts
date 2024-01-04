@@ -16,6 +16,9 @@ repositories {
 }
 
 dependencies {
+    implementation("io.jenetics:jenetics:7.2.0")
+
+
     testImplementation(kotlin("test"))
     implementation("com.google.ortools:ortools-java:9.7.2996")
     implementation("com.google.code.gson:gson:2.10.1")

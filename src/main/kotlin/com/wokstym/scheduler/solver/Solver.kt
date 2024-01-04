@@ -1,10 +1,9 @@
 package com.wokstym.scheduler.solver
 
 import arrow.core.Either
-import com.wokstym.scheduler.ClassSlot
-import com.wokstym.scheduler.ClassWithPeopleAssigned
-import com.wokstym.scheduler.Person
-import com.wokstym.scheduler.SolverResult
+import com.wokstym.scheduler.domain.ClassSlot
+import com.wokstym.scheduler.domain.Person
+import com.wokstym.scheduler.domain.SolverResult
 
 interface Solver {
     enum class Algorithm {

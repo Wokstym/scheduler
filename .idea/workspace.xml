@@ -34,10 +34,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Enum" />
-        <option value="Kotlin File" />
-        <option value="JUnit5 Test Class" />
         <option value="Kotlin Interface" />
         <option value="Kotlin Class" />
+        <option value="JUnit5 Test Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -53,10 +53,15 @@
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.ortools/ortools-java/9.7.2996/26491f2b32698fd10221975b502413e4c82e29fc/ortools-java-9.7.2996-sources.jar!/com/google/ortools/sat/LinearExprBuilder.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.ortools/ortools-java/9.7.2996/26491f2b32698fd10221975b502413e4c82e29fc/ortools-java-9.7.2996-sources.jar!/com/google/ortools/sat/SolveWrapper.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.arrow-kt/arrow-core-jvm/1.1.3/e4c15a5d7ee21c3886c80da655b70ddfe95d515a/arrow-core-jvm-1.1.3-sources.jar!/commonMain/arrow/core/Either.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jenetics/jenetics/7.2.0/1c1b177bd63e43a409828e655af2402855dadd53/jenetics-7.2.0-sources.jar!/io/jenetics/BitChromosome.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jenetics/jenetics/7.2.0/1c1b177bd63e43a409828e655af2402855dadd53/jenetics-7.2.0-sources.jar!/io/jenetics/Chromosome.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jenetics/jenetics/7.2.0/1c1b177bd63e43a409828e655af2402855dadd53/jenetics-7.2.0-sources.jar!/io/jenetics/Genotype.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.jenetics/jenetics/7.2.0/1c1b177bd63e43a409828e655af2402855dadd53/jenetics-7.2.0-sources.jar!/io/jenetics/engine/Engine.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.8.21/16a7151d48fb07d503c3c9e12e0656bbd56fd288/kotlin-stdlib-common-1.8.21-sources.jar!/generated/_Collections.kt" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.8.21/16a7151d48fb07d503c3c9e12e0656bbd56fd288/kotlin-stdlib-common-1.8.21-sources.jar!/kotlin/collections/Maps.kt" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.8.21/6a8d4dfebb88f951bcd9f58636f085bf24ff3e8b/kotlin-stdlib-1.8.21-sources.jar!/kotlin/ArrayIntrinsics.kt" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.8.21/6a8d4dfebb88f951bcd9f58636f085bf24ff3e8b/kotlin-stdlib-1.8.21-sources.jar!/kotlin/Primitives.kt" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.9.21/43e9ef064cecccbccceeaa746d6dd8b04a9669a1/kotlin-stdlib-1.9.21-sources.jar!/commonMain/generated/_Collections.kt" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework/spring-web/6.1.2/495a085680f8fb9c5d53d6d3c0470df74e7f60fb/spring-web-6.1.2-sources.jar!/org/springframework/http/ResponseEntity.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/openjdk-20.0.1/lib/src.zip!/java.base/java/time/LocalDate.java" root0="SKIP_INSPECTION" />
     <setting file="jar://$USER_HOME$/.jdks/openjdk-20.0.1/lib/src.zip!/java.base/java/time/LocalTime.java" root0="SKIP_INSPECTION" />
@@ -83,10 +88,9 @@
     "WebServerToolWindowFactoryState": "false",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
     "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "git-widget-placeholder": "master",
     "jdk.selected.JAVA_MODULE": "20",
     "last_directory_selection": "/home/wokstym/projects/scheduler/src/test/kotlin",
-    "last_opened_file_path": "/home/wokstym/projects/scheduler/src/main/kotlin/com/wokstym/scheduler/ilp",
+    "last_opened_file_path": "/home/wokstym/projects/scheduler/src/main/kotlin/com/wokstym/scheduler/utils",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -108,21 +112,21 @@
       <window_info id="Pull Requests" />
       <window_info id="Learn" />
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17786022" />
-      <window_info id="Commit" order="1" weight="0.11386719" />
+      <window_info id="Commit" order="1" weight="0.17786022" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="TypeScript" />
       <window_info anchor="bottom" id="Profiler" />
-      <window_info anchor="bottom" id="Build" weight="0.3298636" />
+      <window_info anchor="bottom" id="Build" visible="true" weight="0.3298636" />
       <window_info anchor="bottom" id="TODO" />
       <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.25305098" />
       <window_info anchor="bottom" id="File Transfer" />
-      <window_info active="true" anchor="bottom" id="Run" visible="true" weight="0.27674085" />
+      <window_info anchor="bottom" id="Run" weight="0.3298636" />
       <window_info anchor="bottom" id="Find" show_stripe_button="false" weight="0.3303249" />
-      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Version Control" order="0" weight="0.36575735" />
       <window_info anchor="bottom" id="Problems View" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" weight="0.3298636" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.43036613" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.36575735" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.46410626" />
       <window_info anchor="bottom" id="Services" order="4" weight="0.22002871" />
       <window_info anchor="right" id="Endpoints" />
       <window_info anchor="right" id="documentation.v2" side_tool="true" />
@@ -130,7 +134,7 @@
       <window_info anchor="right" id="Meet New UI" side_tool="true" />
       <window_info anchor="right" id="Notifications" order="0" weight="0.33014446" />
       <window_info anchor="right" id="Database" order="1" weight="0.25" />
-      <window_info active="true" anchor="right" id="Gradle" order="2" visible="true" weight="0.12202264" />
+      <window_info anchor="right" id="Gradle" order="2" weight="0.12202264" />
     </layout>
   </component>
   <component name="RecentsManager">
@@ -139,9 +143,11 @@
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/wokstym/scheduler/utils" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/wokstym/scheduler/controller" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/wokstym/scheduler/solver/genetic" />
+      <recent name="$PROJECT_DIR$/src/main/kotlin/com/wokstym/scheduler/solver" />
       <recent name="$PROJECT_DIR$/src/main/kotlin/com/wokstym/scheduler" />
-      <recent name="$PROJECT_DIR$/src/test/kotlin" />
-      <recent name="$PROJECT_DIR$/src/main/kotlin/com/wokstym" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -156,6 +162,7 @@
       <recent name="solver" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.wokstym.scheduler.solver.ilp" />
       <recent name="com.wokstym.solver.ilp" />
     </key>
   </component>
@@ -165,7 +172,7 @@
     </option>
   </component>
   <component name="RunManager" selected="Kotlin.MainKt">
-    <configuration name="CpSatSolverTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="OverlappingPairsTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -178,7 +185,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.wokstym.solver.ilp.CpSatSolverTest&quot;" />
+            <option value="&quot;com.wokstym.scheduler.solver.ilp.OverlappingPairsTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -189,7 +196,7 @@
       <RunAsTest>true</RunAsTest>
       <method v="2" />
     </configuration>
-    <configuration name="CpSatSolverTest.overlappingSlots_forth" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="OverlappingPairsTest.overlappingSlots_base" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -202,31 +209,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.wokstym.solver.ilp.CpSatSolverTest.overlappingSlots_forth&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>true</RunAsTest>
-      <method v="2" />
-    </configuration>
-    <configuration name="CpSatSolverTest.overlappingSlots_third" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;com.wokstym.solver.ilp.CpSatSolverTest.overlappingSlots_third&quot;" />
+            <option value="&quot;com.wokstym.scheduler.solver.ilp.OverlappingPairsTest.overlappingSlots_base&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -239,6 +222,13 @@
     </configuration>
     <configuration name="All in generated-requests" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http">
       <method v="2" />
+    </configuration>
+    <configuration name="GeneticSolverKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wokstym.scheduler.solver.genetic.GeneticSolverKt" />
+      <module name="parselogs.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration name="MainKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.wokstym.scheduler.MainKt" />
@@ -256,11 +246,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.OverlappingPairsTest" />
+        <item itemvalue="Gradle.OverlappingPairsTest.overlappingSlots_base" />
+        <item itemvalue="Kotlin.GeneticSolverKt" />
         <item itemvalue="HTTP Request.All in generated-requests" />
         <item itemvalue="Kotlin.MainKt" />
-        <item itemvalue="Gradle.CpSatSolverTest" />
-        <item itemvalue="Gradle.CpSatSolverTest.overlappingSlots_forth" />
-        <item itemvalue="Gradle.CpSatSolverTest.overlappingSlots_third" />
       </list>
     </recent_temporary>
   </component>
@@ -277,7 +267,7 @@
       <workItem from="1703262278037" duration="596000" />
       <workItem from="1703268059925" duration="3722000" />
       <workItem from="1703763690889" duration="7001000" />
-      <workItem from="1703776404276" duration="50697000" />
+      <workItem from="1703776404276" duration="72838000" />
     </task>
     <task id="LOCAL-00001" summary="Adjusted">
       <option name="closed" value="true" />

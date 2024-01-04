@@ -1,7 +1,9 @@
-package com.wokstym.scheduler
+package com.wokstym.scheduler.controller
 
+import com.wokstym.scheduler.domain.ClassSlot
+import com.wokstym.scheduler.domain.Person
+import com.wokstym.scheduler.domain.Statistics
 import com.wokstym.scheduler.solver.Solver
-
 
 data class ClassWithStudents(
     val classId: Int,

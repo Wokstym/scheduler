@@ -1,4 +1,4 @@
-package com.wokstym.scheduler
+package com.wokstym.scheduler.domain
 
 enum class DayName {
     SUNDAY,

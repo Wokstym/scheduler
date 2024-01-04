@@ -1,15 +1,12 @@
 package com.wokstym.scheduler
 
 import arrow.core.Either
-import com.google.gson.GsonBuilder
-import com.google.gson.JsonDeserializer
-import com.wokstym.scheduler.ilp.CpSatSolver
+import com.wokstym.scheduler.solver.ilp.CpSatSolver
 import com.wokstym.scheduler.solver.Solver
+import com.wokstym.scheduler.domain.*
 import java.io.File
 import java.time.LocalDate
-import java.time.LocalDateTime
 import java.time.LocalTime
-import java.time.ZonedDateTime
 
 
 fun main() {

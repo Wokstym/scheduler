@@ -1,11 +1,11 @@
-package com.wokstym.scheduler.ilp
+package com.wokstym.scheduler.solver.ilp
 
-import com.wokstym.scheduler.ClassSlot
-import com.wokstym.scheduler.DayName
-import com.wokstym.scheduler.SlotId
-import com.wokstym.scheduler.StudentId
+import com.wokstym.scheduler.domain.ClassSlot
+import com.wokstym.scheduler.domain.DayName
+import com.wokstym.scheduler.domain.SlotId
+import com.wokstym.scheduler.domain.StudentId
 
-class ShiftDb<T> {
+class SolverVariablesDb<T> {
     private val shifts = HashMap<StudentId, HashMap<DayName, HashMap<SlotId, T>>>()
 
 

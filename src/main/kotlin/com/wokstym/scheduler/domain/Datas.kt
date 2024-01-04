@@ -1,15 +1,13 @@
-package com.wokstym.scheduler
+package com.wokstym.scheduler.domain
 
 import java.time.LocalDateTime
 import java.time.LocalTime
-
 
 typealias SlotId = Int
 typealias StudentId = Int
 typealias Points = Int
 typealias Amount = Int
 typealias SlotName = String
-typealias PersonName = String
 
 
 data class ClassSlot(
@@ -54,21 +52,3 @@ data class SolverResult(
     val stats: Statistics
 
 )
-
-fun <T> HashMap<StudentId, HashMap<DayName, HashMap<SlotId, T>>>.add(
-    studentId: StudentId,
-    day: DayName,
-    slotId: SlotId,
-    literal: T
-) {
-    this.getOrPut(studentId) { HashMap() }.getOrPut(day) { HashMap() }[slotId] = literal
-}
-
-fun <T> HashMap<StudentId, HashMap<DayName, HashMap<SlotId, T>>>.get(
-    studentId: StudentId,
-    day: DayName,
-    slotId: SlotId
-): T? {
-    return this.getOrPut(studentId) { HashMap() }.getOrPut(day) { HashMap() }[slotId]
-}
-

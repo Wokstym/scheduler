@@ -1,9 +1,10 @@
-package com.wokstym.solver.ilp
+package com.wokstym.scheduler.solver.ilp
 
 
-import com.wokstym.scheduler.ClassSlot
-import com.wokstym.scheduler.DayName
-import com.wokstym.scheduler.ilp.CpSatSolver
+
+import com.wokstym.scheduler.domain.ClassSlot
+import com.wokstym.scheduler.domain.DayName
+import com.wokstym.scheduler.solver.overlappingSlotsPairs
 import io.kotest.matchers.Matcher
 import io.kotest.matchers.MatcherResult
 import io.kotest.matchers.collections.*
@@ -12,7 +13,7 @@ import org.junit.jupiter.api.Test
 
 import java.time.LocalTime
 
-class CpSatSolverTest {
+class OverlappingPairsTest {
 
     private fun <A, B, C, D> beEqualInAnyOrder(other: Pair<C, D>) = Matcher<Pair<A, B>> { value ->
         MatcherResult(
@@ -24,7 +25,6 @@ class CpSatSolverTest {
 
     @Test
     fun overlappingSlots_base() {
-        val cpSatSolver = CpSatSolver()
 
         val firstOverlap = ClassSlot(2, "Applied Mathematics", DayName.MONDAY, LocalTime.of(11, 0), LocalTime.of(12, 0))
         val secondOverlap = ClassSlot(3, "Calculus", DayName.MONDAY, LocalTime.of(11, 30), LocalTime.of(12, 30))
@@ -35,10 +35,8 @@ class CpSatSolverTest {
             ClassSlot(4, "Calculus Cw", DayName.THURSDAY, LocalTime.of(10, 0), LocalTime.of(12, 0)),
             ClassSlot(5, "Applied Mathematics Cw", DayName.THURSDAY, LocalTime.of(18, 0), LocalTime.of(19, 0)),
         )
-        val slotsByDays: Map<DayName, List<ClassSlot>> = slots.groupBy { it.day }
-            .mapValues { (_, v) -> v.sortedBy { it.startTime } }
 
-        val overlapping = cpSatSolver.overlappingSlots(slotsByDays)
+        val overlapping = overlappingSlotsPairs(slots)
 
         overlapping shouldMatchEach listOf {
             it should beEqualInAnyOrder(firstOverlap to secondOverlap)
@@ -47,7 +45,6 @@ class CpSatSolverTest {
 
     @Test
     fun overlappingSlots_twoNot() {
-        val cpSatSolver = CpSatSolver()
 
         val firstOverlap = ClassSlot(2, "Applied Mathematics", DayName.MONDAY, LocalTime.of(11, 0), LocalTime.of(12, 0))
         val secondOverlap = ClassSlot(3, "Calculus", DayName.MONDAY, LocalTime.of(11, 30), LocalTime.of(12, 30))
@@ -57,10 +54,8 @@ class CpSatSolverTest {
         val slots = listOf(
             firstOverlap, secondOverlap, thirdOverlapOnlyWithSecond
         )
-        val slotsByDays: Map<DayName, List<ClassSlot>> = slots.groupBy { it.day }
-            .mapValues { (_, v) -> v.sortedBy { it.startTime } }
 
-        val overlapping = cpSatSolver.overlappingSlots(slotsByDays)
+        val overlapping = overlappingSlotsPairs(slots)
 
         overlapping shouldMatchEach listOf({
             it should beEqualInAnyOrder(firstOverlap to secondOverlap)
@@ -71,7 +66,6 @@ class CpSatSolverTest {
 
     @Test
     fun overlappingSlots_third() {
-        val cpSatSolver = CpSatSolver()
 
         val firstOverlap = ClassSlot(2, "Applied Mathematics", DayName.MONDAY, LocalTime.of(11, 0), LocalTime.of(12, 0))
         val forthOverlapWithFirst = ClassSlot(5, "Calculus", DayName.MONDAY, LocalTime.of(11, 0), LocalTime.of(12, 0))
@@ -82,10 +76,8 @@ class CpSatSolverTest {
         val slots = listOf(
             firstOverlap, secondOverlap, thirdOverlapOnlyWithSecond, forthOverlapWithFirst
         )
-        val slotsByDays: Map<DayName, List<ClassSlot>> = slots.groupBy { it.day }
-            .mapValues { (_, v) -> v.sortedBy { it.startTime } }
 
-        val overlapping = cpSatSolver.overlappingSlots(slotsByDays)
+        val overlapping = overlappingSlotsPairs(slots)
 
         overlapping shouldMatchEach listOf({
             it should beEqualInAnyOrder(firstOverlap to forthOverlapWithFirst)
@@ -100,7 +92,6 @@ class CpSatSolverTest {
 
     @Test
     fun overlappingSlots_forth() {
-        val cpSatSolver = CpSatSolver()
 
         val firstOverlap = ClassSlot(2, "Applied Mathematics", DayName.MONDAY, LocalTime.of(11, 0), LocalTime.of(14, 0))
         val secondOverlap = ClassSlot(3, "Calculus", DayName.MONDAY, LocalTime.of(11, 30), LocalTime.of(12, 0))
@@ -109,10 +100,8 @@ class CpSatSolverTest {
         val slots = listOf(
             firstOverlap, secondOverlap, third
         )
-        val slotsByDays: Map<DayName, List<ClassSlot>> = slots.groupBy { it.day }
-            .mapValues { (_, v) -> v.sortedBy { it.startTime } }
 
-        val overlapping = cpSatSolver.overlappingSlots(slotsByDays)
+        val overlapping = overlappingSlotsPairs(slots)
 
         overlapping shouldMatchEach listOf({
             it should beEqualInAnyOrder(firstOverlap to secondOverlap)
