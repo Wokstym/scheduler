@@ -1,0 +1,128 @@
+{
+  "slots": [
+    {
+      "id": 1,
+      "name": "Computer Science",
+      "day": "MONDAY",
+      "startTime": "10:00:00",
+      "endTime": "11:00:00",
+      "seats": 1
+    },
+    {
+      "id": 2,
+      "name": "Applied Mathematics",
+      "day": "MONDAY",
+      "startTime": "11:00:00",
+      "endTime": "12:00:00",
+      "seats": 1
+    },
+    {
+      "id": 3,
+      "name": "Calculus",
+      "day": "MONDAY",
+      "startTime": "12:00:00",
+      "endTime": "13:00:00",
+      "seats": 1
+    },
+    {
+      "id": 4,
+      "name": "Calculus Cw",
+      "day": "THURSDAY",
+      "startTime": "13:00:00",
+      "endTime": "14:00:00",
+      "seats": 1
+    },
+    {
+      "id": 5,
+      "name": "Applied Mathematics Cw",
+      "day": "THURSDAY",
+      "startTime": "18:00:00",
+      "endTime": "19:00:00",
+      "seats": 1
+    },
+    {
+      "id": 6,
+      "name": "Computer Science Cw",
+      "day": "SATURDAY",
+      "startTime": "10:00:00",
+      "endTime": "11:00:00",
+      "seats": 1
+    },
+    {
+      "id": 7,
+      "name": "Algebra",
+      "day": "SATURDAY",
+      "startTime": "11:30:00",
+      "endTime": "12:00:00",
+      "seats": 10
+    },
+    {
+      "id": 8,
+      "name": "C++",
+      "day": "SATURDAY",
+      "startTime": "10:00:00",
+      "endTime": "12:00:00",
+      "seats": 10
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "grzesiek",
+      "amountOfSlots": 1,
+      "prefersSlots": {
+        "1": 8,
+        "4": 6
+      },
+      "blockedSlotsId": [
+        7
+      ]
+    },
+    {
+      "id": 2,
+      "name": "karolina",
+      "amountOfSlots": 1,
+      "prefersSlots": {
+        "1": 8,
+        "2": 5
+      },
+      "blockedSlotsId": [
+        7
+      ]
+    },
+    {
+      "id": 3,
+      "name": "mateusz",
+      "amountOfSlots": 1,
+      "prefersSlots": {
+        "3": 8,
+        "4": 5
+      },
+      "blockedSlotsId": [
+        5,
+        6,
+        7
+      ]
+    },
+    {
+      "id": 4,
+      "name": "tomek",
+      "amountOfSlots": 2,
+      "prefersSlots": {
+        "7": 7,
+        "8": 7
+      },
+      "blockedSlotsId": []
+    },
+    {
+      "id": 5,
+      "name": "romek",
+      "amountOfSlots": 2,
+      "prefersSlots": {
+        "7": 70,
+        "8": 70
+      },
+      "blockedSlotsId": []
+    }
+  ]
+}
