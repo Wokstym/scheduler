@@ -1,6 +1,8 @@
 package com.wokstym.scheduler.controller
 
 
+import com.wokstym.scheduler.solver.annealing.SimulatedAnnealing
+import com.wokstym.scheduler.solver.annealing.SimulatedAnnealing2
 import com.wokstym.scheduler.solver.genetic.GeneticSolver
 import com.wokstym.scheduler.solver.ilp.CpSatSolver
 import com.wokstym.scheduler.solver.ilp.ILPSolver
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.*
 class Controller {
 
     val solvers = listOf(
+        SimulatedAnnealing2(),
         GeneticSolver(),
         CpSatSolver(),
         ILPSolver(),

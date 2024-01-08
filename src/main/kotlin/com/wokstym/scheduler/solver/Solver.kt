@@ -9,7 +9,8 @@ interface Solver {
     enum class Algorithm {
         CP_SAT,
         ILP,
-        GENETIC
+        GENETIC,
+        SA
     }
 
     sealed class Error(val message: String) {
