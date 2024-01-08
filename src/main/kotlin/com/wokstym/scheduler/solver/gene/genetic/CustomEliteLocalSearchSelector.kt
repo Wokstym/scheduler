@@ -1,4 +1,4 @@
-package com.wokstym.scheduler.solver.genetic
+package com.wokstym.scheduler.solver.gene.genetic
 
 import io.jenetics.*
 import io.jenetics.util.ISeq

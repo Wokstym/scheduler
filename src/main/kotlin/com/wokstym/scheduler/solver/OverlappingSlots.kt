@@ -1,8 +1,13 @@
 package com.wokstym.scheduler.solver
 
 import com.wokstym.scheduler.domain.ClassSlot
-import com.wokstym.scheduler.domain.DayName
 
+
+fun allExistingOverlaps(slots: List<ClassSlot>) =
+    overlappingSlotsPairs(slots).groupBy(
+        { it.first.id },
+        { it.second.id })
+        .mapValues { it.value.toSet() }
 
 fun overlappingSlotsPairs(slots: List<ClassSlot>): List<Pair<ClassSlot, ClassSlot>> {
     return slots.groupBy { it.day }

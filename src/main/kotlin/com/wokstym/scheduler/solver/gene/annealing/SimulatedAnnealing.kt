@@ -1,28 +1,25 @@
-package com.wokstym.scheduler.solver.annealing
+package com.wokstym.scheduler.solver.gene.annealing
 
 import arrow.core.Either
 import arrow.core.right
 import com.wokstym.scheduler.domain.*
 import com.wokstym.scheduler.solver.Solver
-import com.wokstym.scheduler.solver.genetic.GenotypeCacheEvaluator
-import com.wokstym.scheduler.solver.overlappingSlotsPairs
-import com.wokstym.scheduler.utils.format
+import com.wokstym.scheduler.solver.allExistingOverlaps
+import com.wokstym.scheduler.solver.gene.common.GenotypeCacheEvaluator
 import io.jenetics.*
 import io.jenetics.util.ISeq
 import kotlin.math.exp
-import kotlin.math.ln
 import kotlin.math.pow
 import kotlin.random.Random
-import kotlin.time.measureTime
 import kotlin.time.measureTimedValue
 
-class SimulatedAnnealing2(
+class SimulatedAnnealing(
 
     // indicates how many changes have to happen at given temperature cycle to count the iteration as frozen
     private val freezeMinimalChangesPercentage: Double = 0.2,
 
     // indicates how many frozen iterations need to happen to stop annealing
-    private val freezeLimit: Int = 10,
+    private val freezeLimit: Int = 100,
 
     // by how much we increase amount of tries at given temperature
     private val trialMultiplier: Int = 10,
@@ -30,13 +27,15 @@ class SimulatedAnnealing2(
     // how many changes percentage need to happen to reduce temperature faster
     private val fastReductionMinimalChangesPercentage: Double = 0.7,
 
-    private val fastCoolingFactor: Double = 0.5,
-    private val slowCoolingFactor: Double = 0.98
+    private val fastCoolingFactor: Double = 0.85,
+    private val slowCoolingFactor: Double = 0.99,
+
+    private val bitFlipInsteadOfSwapMutationProbability: Double = 0.8
 
 ) : Solver {
     override val algorithm = Solver.Algorithm.SA
 
-    private val mutator = CustomSwapMutator<Int>(1.0)
+    private val mutator = CustomSwapMutator<Int>(bitFlipInsteadOfSwapMutationProbability, mutationProbability = 1.0)
 
     private fun createStarterGenotype(students: List<Person>, slots: List<ClassSlot>): Genotype<BitGene> {
         // Random bits
@@ -87,7 +86,7 @@ class SimulatedAnnealing2(
                         best = neighbour
                     }
 
-                    if (neighbour.fitness() >= current.fitness()) {
+                    if (neighbour.fitness() > current.fitness()) {
                         changes += 1
                         current = neighbour
 
@@ -106,15 +105,13 @@ class SimulatedAnnealing2(
                 temperature *= if (changesPercentage >= fastReductionMinimalChangesPercentage)
                     fastCoolingFactor
                 else
-                    slowCoolingFactor;
-
-
-                println("Temperature: ${temperature.format(2)}, best cost: ${best.fitness()}, current cost: ${current.fitness()}, $freezeCount $changesPercentage")
+                    slowCoolingFactor
+//                println("Temperature: ${temperature.format(2)}, best cost: ${best.fitness()}, current cost: ${current.fitness()}, $freezeCount $changesPercentage")
 
                 if (changesPercentage < freezeMinimalChangesPercentage)
-                    freezeCount += 1;
+                    freezeCount += 1
                 else
-                    freezeCount = 0;
+                    freezeCount = 0
 
             }
             best
@@ -144,6 +141,7 @@ class SimulatedAnnealing2(
                 "fastReductionMinimalChangesPercentage" to fastReductionMinimalChangesPercentage.toString(),
                 "fastCoolingFactor" to fastCoolingFactor.toString(),
                 "slowCoolingFactor" to slowCoolingFactor.toString(),
+                "bitFlipInsteadOfSwapMutationProbability" to bitFlipInsteadOfSwapMutationProbability.toString()
             )
         ).right()
     }
@@ -176,40 +174,4 @@ class SimulatedAnnealing2(
         println("Initial temperature: $d")
         return d
     }
-
-
-    @Suppress("SameParameterValue")
-    private fun coolDown(
-        iteration: Long,
-        initialTemperature: Double,
-        logarithmicRate: Double,
-        exponentialRate: Double,
-        logarithmicProbability: Double
-    ): Double {
-
-        return if (true) {
-            val exponentialCoolDown = exponentialCoolDown(iteration, initialTemperature, exponentialRate)
-//            println("exponentialCoolDown: $exponentialCoolDown")
-            exponentialCoolDown
-        } else {
-            val logarithmicCoolDown = logarithmicCoolDown(iteration, initialTemperature, logarithmicRate)
-//            println("logarithmicCoolDown: $logarithmicCoolDown")
-            logarithmicCoolDown
-
-        }
-    }
-
-    private fun logarithmicCoolDown(iteration: Long, initialTemperature: Double, rate: Double): Double {
-        return (rate * initialTemperature) / ln(1.0 + iteration)
-    }
-
-    private fun exponentialCoolDown(iteration: Long, initialTemperature: Double, rate: Double): Double {
-        return rate.pow(iteration.toInt()) * initialTemperature
-    }
-
-    private fun allExistingOverlaps(slots: List<ClassSlot>) =
-        overlappingSlotsPairs(slots).groupBy(
-            { it.first.id },
-            { it.second.id })
-            .mapValues { it.value.toSet() }
 }

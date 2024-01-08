@@ -1,7 +1,15 @@
 package com.wokstym.scheduler.domain
 
+import com.fasterxml.jackson.core.JsonGenerator
+import com.fasterxml.jackson.core.JsonProcessingException
+import com.fasterxml.jackson.databind.JsonSerializer
+import com.fasterxml.jackson.databind.SerializerProvider
+import com.fasterxml.jackson.databind.annotation.JsonSerialize
+import com.wokstym.scheduler.utils.format
+import java.io.IOException
 import java.time.LocalDateTime
 import java.time.LocalTime
+
 
 typealias SlotId = Int
 typealias StudentId = Int
@@ -19,7 +27,7 @@ data class ClassSlot(
     val seats: Int = 1
 ) {
     override fun toString(): String {
-        return "ClassSlot(id=$id)"
+        return "(id=$id \"$name\" $day $startTime-$endTime)"
     }
 }
 
@@ -29,7 +37,12 @@ data class Person(
     val slotsToFulfill: Map<SlotName, Amount>,
     val prefersSlots: Map<SlotId, Points>,
     val blockedSlotsId: Set<Int>
-)
+) {
+    override fun toString(): String {
+        return "(id=$id \"$name\")"
+
+    }
+}
 
 data class Event(
     val title: String,
@@ -37,7 +50,16 @@ data class Event(
     val end: LocalDateTime
 )
 
+
+internal class DecimalJsonSerializer : JsonSerializer<Double?>() {
+    @Throws(IOException::class, JsonProcessingException::class)
+    override fun serialize(value: Double?, jgen: JsonGenerator, provider: SerializerProvider?) {
+        jgen.writeNumber(value?.format(3))
+    }
+}
+
 data class Statistics(
+    @field:JsonSerialize(using = DecimalJsonSerializer::class)
     val timeInSeconds: Double,
     val variousStats: Map<String, String>
 )

@@ -1,10 +1,11 @@
-package com.wokstym.scheduler.solver.genetic
+package com.wokstym.scheduler.solver.gene.genetic
 
 import arrow.core.Either
 import arrow.core.right
 import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.domain.*
-import com.wokstym.scheduler.solver.overlappingSlotsPairs
+import com.wokstym.scheduler.solver.allExistingOverlaps
+import com.wokstym.scheduler.solver.gene.common.GenotypeCacheEvaluator
 import io.jenetics.*
 import io.jenetics.engine.Engine
 import io.jenetics.engine.EvolutionResult
@@ -91,13 +92,6 @@ class GeneticSolver(
             )
         ).right()
     }
-
-
-    private fun allExistingOverlaps(slots: List<ClassSlot>) =
-        overlappingSlotsPairs(slots).groupBy(
-            { it.first.id },
-            { it.second.id })
-            .mapValues { it.value.toSet() }
 
     private fun createStarterGenotype(students: List<Person>, slots: List<ClassSlot>): Genotype<BitGene> {
         // Random bits

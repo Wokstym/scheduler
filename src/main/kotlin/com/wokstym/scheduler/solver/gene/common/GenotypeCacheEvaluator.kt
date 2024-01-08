@@ -1,4 +1,4 @@
-package com.wokstym.scheduler.solver.genetic
+package com.wokstym.scheduler.solver.gene.common
 
 import com.wokstym.scheduler.domain.*
 import io.jenetics.BitChromosome
@@ -65,8 +65,9 @@ class GenotypeCacheEvaluator(
         for (assignedSlot in assignedSlots) {
             if (assignedSlot.classSlot.seats < assignedSlot.people.size) {
                 fitness -= violationWeight
+
                 if (addViolationDetails)
-                    violations.add("Too many students in class id = ${assignedSlot.classSlot.id}")
+                    violations.add("Too many students in class ${assignedSlot.classSlot}")
             }
         }
 
@@ -76,7 +77,7 @@ class GenotypeCacheEvaluator(
                 if (students.blockedSlotsId.contains(slot.id)) {
                     fitness -= violationWeight
                     if (addViolationDetails)
-                        violations.add("Student id = ${students.id} has blocked slot id = ${slot.id}, but was assigned to it")
+                        violations.add("Student $students was assigned to blocked slot $slot")
                 }
             }
         }
@@ -98,25 +99,37 @@ class GenotypeCacheEvaluator(
 
             fitness -= violationWeight * overlappingSlotsForThatStudent.size
             if (overlappingSlotsForThatStudent.isNotEmpty() && addViolationDetails)
-                violations.add("Student id = ${students.id} has overlapping slots with ids = ${overlappingSlotsForThatStudent}")
+                violations.add("Student $students has overlapping slots")
         }
 
 
         // Each student get at most as many slots as he is assigned to for every subject
         for ((students, slots) in peopleToSlots) {
-            val assigned: Set<Pair<SlotName, Amount>> = slots.groupBy { it.name }
+            val groupedByName = slots.groupBy { it.name }
+            val assigned: Set<Pair<SlotName, Amount>> = groupedByName
                 .mapValues { it.value.size }
                 .map { it.key to it.value }
                 .toSet()
 
-            val required: Set<Pair<SlotName, Amount>> = students.slotsToFulfill.entries
-                .map { it.key to it.value }
-                .toSet()
+            fitness -= calculatePenaltyForNotAssigningDesiredSubjectAmount(
+                students,
+                assigned,
+                fitness,
+                addViolationDetails,
+                violations
+            )
 
-            val diffs = ((assigned - required) union (required - assigned)).size
-            fitness -= diffs * violationWeight
-            if (diffs > 0 && addViolationDetails)
-                violations.add("Student id = ${students.id} has incorrect slots assigned")
+            for ((name, slotsWithSameName) in groupedByName) {
+                val groupedByDay = slotsWithSameName.groupBy { it.day }
+                    .filter { it.value.size > 1 }
+
+                for ((day, incorrectSlots) in groupedByDay) {
+                    fitness -= violationWeight * (incorrectSlots.size - 1)
+                    if (addViolationDetails)
+                        violations.add("Student $students has on $day multiple $name classes")
+                }
+            }
+
         }
 
         // Add happiness
@@ -126,7 +139,24 @@ class GenotypeCacheEvaluator(
             }
         }
 
-        return fitness to violations
+        return fitness to violations.sorted()
 
+    }
+
+    private fun calculatePenaltyForNotAssigningDesiredSubjectAmount(
+        students: Person,
+        assigned: Set<Pair<SlotName, Amount>>,
+        fitness: Int,
+        addViolationDetails: Boolean,
+        violations: ArrayList<String>
+    ): Int {
+        val required: Set<Pair<SlotName, Amount>> = students.slotsToFulfill.entries
+            .map { it.key to it.value }
+            .toSet()
+
+        val diffs = ((assigned - required) union (required - assigned)).size
+        if (diffs > 0 && addViolationDetails)
+            violations.add("Student $students has incorrect slots assigned")
+        return diffs * violationWeight
     }
 }

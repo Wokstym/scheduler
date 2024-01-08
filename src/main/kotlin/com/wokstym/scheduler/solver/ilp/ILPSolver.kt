@@ -29,9 +29,12 @@ class ILPSolver : Solver {
         val model = MPSolver.createSolver("SCIP")
         val db = createVariablesDb(students, slots, model)
 
+        val slotsByName: Map<SlotName, List<ClassSlot>> = slots.groupBy { it.name }
+
         ensureSlotCapacity(slots, model, students, db)
         ensureNoOverlappingSlots(slots, students, model, db)
-        ensureStudentBeAssignedToCorrectAmountOfClasses(students, slots, model, db)
+        ensureStudentBeAssignedToCorrectAmountOfClasses(students, slotsByName, model, db)
+        ensureDifferentSubjectsSameDay(students, slotsByName, model, db)
 
         // TODO: Student może mieć maksymalnie jedne zajęcia z danego przedmiotu jednego dnia.
 
@@ -124,11 +127,10 @@ class ILPSolver : Solver {
     // Each student get at most as many slots as he is assigned to for every subject
     private fun ensureStudentBeAssignedToCorrectAmountOfClasses(
         students: List<Person>,
-        slots: List<ClassSlot>,
+        slotsByName: Map<SlotName, List<ClassSlot>>,
         model: MPSolver,
         db: SolverVariablesDb<MPVariable>
     ) {
-        val slotsByName: Map<SlotName, List<ClassSlot>> = slots.groupBy { it.name }
 
         for (person in students) {
             for ((slotName, slotsWithCurrentName) in slotsByName) {
@@ -166,6 +168,32 @@ class ILPSolver : Solver {
                 val secondLiteral = db.get(person.id, secondOverlappingSlot)
                 if (secondLiteral != null) {
                     constraint.setCoefficient(secondLiteral, 1.0)
+                }
+            }
+        }
+    }
+
+    private fun ensureDifferentSubjectsSameDay(
+        students: List<Person>,
+        slotsByName: Map<SlotName, List<ClassSlot>>,
+        model: MPSolver,
+        db: SolverVariablesDb<MPVariable>
+    ) {
+        for (person in students) {
+
+            for ((_, slotsWithCurrentName) in slotsByName) {
+                val slotsByDay = slotsWithCurrentName.groupBy { it.day }
+                    .values
+                    .filter { it.size > 1 }
+
+                for (slots in slotsByDay) {
+                    val constraint: MPConstraint = model.makeConstraint(0.0, 1.0, "")
+                    for (slot in slots) {
+                        val literal = db.get(person.id, slot)
+                        if (literal != null) {
+                            constraint.setCoefficient(literal, 1.0)
+                        }
+                    }
                 }
             }
         }
