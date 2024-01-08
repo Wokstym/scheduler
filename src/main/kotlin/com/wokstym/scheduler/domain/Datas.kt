@@ -49,6 +49,6 @@ data class ClassWithPeopleAssigned(
 
 data class SolverResult(
     val data: List<ClassWithPeopleAssigned>,
-    val stats: Statistics
-
+    val stats: Statistics,
+    val params: Map<String, String>? = null
 )

@@ -76,16 +76,18 @@ class GeneticSolver(
                     "Generations" to result.generation().toString(),
                     "Fitness" to fitness.toString(),
                     "Violations" to violations.toString(),
-                    "populationSize" to populationSize.toString(),
-                    "eliteSize" to eliteSize.toString(),
-                    "maxGenerations" to maxGenerations.toString(),
-                    "mutationProbability" to mutationProbability.toString(),
-                    "violationWeight" to violationWeight.toString(),
-                    "crossoverProbability" to crossoverProbability.toString(),
-                    "localSearchNeighboursCount" to localSearchNeighboursCount.toString(),
-                    "localSearchIterations" to localSearchIterations.toString(),
-                    "cacheFitness" to cacheFitness.toString(),
-                )
+                    )
+            ),
+            mapOf(
+                "populationSize" to populationSize.toString(),
+                "eliteSize" to eliteSize.toString(),
+                "maxGenerations" to maxGenerations.toString(),
+                "mutationProbability" to mutationProbability.toString(),
+                "violationWeight" to violationWeight.toString(),
+                "crossoverProbability" to crossoverProbability.toString(),
+                "localSearchNeighboursCount" to localSearchNeighboursCount.toString(),
+                "localSearchIterations" to localSearchIterations.toString(),
+                "cacheFitness" to cacheFitness.toString(),
             )
         ).right()
     }

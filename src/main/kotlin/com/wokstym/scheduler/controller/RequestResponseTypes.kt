@@ -14,6 +14,7 @@ data class SingleResult(
     val algorithm: Solver.Algorithm,
     val assigned: List<ClassWithStudents>,
     val stats: Statistics? = null,
+    val params: Map<String, String>? = null,
     val error: ErrorResponse? = null,
 )
 

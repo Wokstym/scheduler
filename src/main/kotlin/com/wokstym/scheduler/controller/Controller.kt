@@ -14,9 +14,9 @@ class Controller {
 
     val solvers = listOf(
         SimulatedAnnealing2(),
-        GeneticSolver(),
-        CpSatSolver(),
-        ILPSolver(),
+//        GeneticSolver(),
+//        CpSatSolver(),
+//        ILPSolver(),
     )
 
     @CrossOrigin
@@ -38,7 +38,8 @@ class Controller {
                                     studentsIds = classWithPeopleAssigned.people.map { it.id }
                                 )
                             },
-                            stats = it.stats
+                            stats = it.stats,
+                            params = it.params
                         )
                     })
                 })

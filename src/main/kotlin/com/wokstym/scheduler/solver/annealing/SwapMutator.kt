@@ -8,8 +8,8 @@ import kotlin.random.Random
 
 // TODO gotowe, ale czy potrzebne? XD
 class CustomSwapMutator< C : Comparable<C>>(
-    probability: Double = DEFAULT_ALTER_PROBABILITY
-) : Mutator<BitGene, C>(probability) {
+    probabilityOf: Double = DEFAULT_ALTER_PROBABILITY
+) : Mutator<BitGene, C>(probabilityOf) {
 
 
     override fun mutate(
@@ -17,7 +17,7 @@ class CustomSwapMutator< C : Comparable<C>>(
         p: Double,
         random: RandomGenerator
     ): MutatorResult<Genotype<BitGene>> {
-        if (genotype.length() < 2 && random.nextInt() < Probabilities.toInt(p)) {
+        if (genotype.length() == 0) {
             return MutatorResult(genotype, 0)
         }
 

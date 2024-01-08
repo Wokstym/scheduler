@@ -1,15 +1,14 @@
 package com.wokstym.scheduler.solver.annealing
 
 import arrow.core.Either
-import arrow.core.left
 import arrow.core.right
 import com.wokstym.scheduler.domain.*
 import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.solver.genetic.GenotypeCacheEvaluator
 import com.wokstym.scheduler.solver.overlappingSlotsPairs
+import com.wokstym.scheduler.utils.format
 import io.jenetics.*
 import io.jenetics.util.ISeq
-import java.io.File
 import kotlin.math.exp
 import kotlin.math.ln
 import kotlin.math.pow
@@ -19,10 +18,21 @@ import kotlin.time.measureTimedValue
 
 class SimulatedAnnealing2(
 
-    private val logarithmicRate: Double = 0.5,
-    private val exponentialRate: Double = 0.99,
-    private val logarithmicProbability: Double = 0.3,
-    private val iterations: Long = 100_000L
+    // indicates how many changes have to happen at given temperature cycle to count the iteration as frozen
+    private val freezeMinimalChangesPercentage: Double = 0.2,
+
+    // indicates how many frozen iterations need to happen to stop annealing
+    private val freezeLimit: Int = 10,
+
+    // by how much we increase amount of tries at given temperature
+    private val trialMultiplier: Int = 10,
+
+    // how many changes percentage need to happen to reduce temperature faster
+    private val fastReductionMinimalChangesPercentage: Double = 0.7,
+
+    private val fastCoolingFactor: Double = 0.5,
+    private val slowCoolingFactor: Double = 0.98
+
 ) : Solver {
     override val algorithm = Solver.Algorithm.SA
 
@@ -49,89 +59,69 @@ class SimulatedAnnealing2(
         val overlaps = allExistingOverlaps(slots)
         val evaluator = GenotypeCacheEvaluator(overlaps, slots, students, 80, false)
 
-        var S = createStarterGenotype(students, slots)
-        var C = evaluator.evaluateFromGenotype(S)
-        var CWithS = Phenotype.of(S, 0L, C)
-        var temp = calculateInitialTemperature(S) {
-            evaluator.evaluateFromGenotype(it)
-        } // 2000
-
-        var bestS = S
-        var bestC = C
-
-        var freezecount = 0
-
-        val minpercent = 0.2
-        val freezeLimit = 10
-        val sizefactor = 10
-
-        val fastfactor = 0.5 // 0.5
-        val tempfactor = 0.98 // 0.98
-        val tcent = 100
-
-        val N = slots.size * students.size
-
-        var iterations = 0
-
-        val time = measureTime {
-        while (freezecount < freezeLimit) {
-            var changes = 0
-            var trials = 0
-
-            while (trials < sizefactor * N) {
-                iterations+=1
-                trials += 1
-
-                val neighbour = mutate(evaluator, CWithS, 1)
-                val neighbourCost = evaluator.evaluateFromGenotype(neighbour.genotype())
-                val diff =  C - neighbourCost
-                if (neighbourCost > bestC) {
-                    bestC = neighbourCost
-                    bestS = neighbour.genotype()
-                }
-
-                if (diff <= 0) {
-                    changes += 1
-                    C = neighbourCost
-                    S = neighbour.genotype()
-                    CWithS = Phenotype.of(S, 0L, C)
-
-                } else {
-                    val r = Random.nextDouble()
-
-                    if (r <= exp(-(diff) / temp)) {
-                        changes += 1
-                        C = neighbourCost
-                        S = neighbour.genotype()
-                        CWithS = Phenotype.of(S, 0L, C)
+        val starterGenotype = createStarterGenotype(students, slots)
+        val variablesCount = slots.size * students.size
 
 
-                    }
-                }
+        var iterations = 0L
 
+        val (result, timeTaken) = measureTimedValue {
+            var freezeCount = 0
+
+            var current = Phenotype.of(starterGenotype, 0L, evaluator.evaluateFromGenotype(starterGenotype))
+            var best = current
+            var temperature = calculateInitialTemperature(starterGenotype) {
+                evaluator.evaluateFromGenotype(it)
             }
 
-            // fast reduction
-            if (changes / trials > tcent)
-                temp *= fastfactor
-            // slow reduction
-            else
-                temp *= tempfactor;
+            while (freezeCount < freezeLimit) {
+                var changes = 0
+                var trials = 0
+
+                while (trials < trialMultiplier * variablesCount) {
+                    iterations += 1
+                    trials += 1
+
+                    val neighbour = mutate(evaluator, current, iterations)
+                    if (neighbour.fitness() > best.fitness()) {
+                        best = neighbour
+                    }
+
+                    if (neighbour.fitness() >= current.fitness()) {
+                        changes += 1
+                        current = neighbour
+
+                    } else {
+                        val acceptanceProbability = exp(-(current.fitness() - neighbour.fitness()) / temperature)
+
+                        if (acceptanceProbability > Random.nextDouble()) {
+                            changes += 1
+                            current = neighbour
+                        }
+                    }
+
+                }
+
+                val changesPercentage = changes.toDouble() / trials
+                temperature *= if (changesPercentage >= fastReductionMinimalChangesPercentage)
+                    fastCoolingFactor
+                else
+                    slowCoolingFactor;
 
 
-            println( "$temp $bestC $C $freezecount ${changes.toDouble() / trials}"  )
+                println("Temperature: ${temperature.format(2)}, best cost: ${best.fitness()}, current cost: ${current.fitness()}, $freezeCount $changesPercentage")
 
-            if (changes.toDouble() / trials < minpercent)
-                freezecount += 1;
-            else
-                freezecount = 0;
+                if (changesPercentage < freezeMinimalChangesPercentage)
+                    freezeCount += 1;
+                else
+                    freezeCount = 0;
 
-
+            }
+            best
         }
-        }
 
 
-        val classesWithPeopleAssigned = evaluator.transformGenotype(bestS)
+        val classesWithPeopleAssigned = evaluator.transformGenotype(result.genotype())
         val (_, violations) = evaluator.evaluateWithViolations(
             classesWithPeopleAssigned,
             true
@@ -139,13 +129,21 @@ class SimulatedAnnealing2(
         return SolverResult(
             classesWithPeopleAssigned,
             Statistics(
-                time.inWholeMilliseconds / 1000.0,
+                timeTaken.inWholeMilliseconds / 1000.0,
                 mapOf(
                     "Happiness" to calculateHappiness(classesWithPeopleAssigned).toString(),
                     "Violations" to violations.toString(),
                     "Iterations" to iterations.toString(),
-                    "Fitness" to bestC.toString(),
+                    "Fitness" to result.fitness().toString(),
                 )
+            ),
+            mapOf(
+                "freezeMinimalChangesPercentage" to freezeMinimalChangesPercentage.toString(),
+                "freezeLimit" to freezeLimit.toString(),
+                "trialMultiplier" to trialMultiplier.toString(),
+                "fastReductionMinimalChangesPercentage" to fastReductionMinimalChangesPercentage.toString(),
+                "fastCoolingFactor" to fastCoolingFactor.toString(),
+                "slowCoolingFactor" to slowCoolingFactor.toString(),
             )
         ).right()
     }
@@ -174,7 +172,9 @@ class SimulatedAnnealing2(
         val variance = allRandomFitness.sumOf { (it - mean).pow(2) } / n
 
 
-        return K * variance
+        val d = K * variance
+        println("Initial temperature: $d")
+        return d
     }
 
 
