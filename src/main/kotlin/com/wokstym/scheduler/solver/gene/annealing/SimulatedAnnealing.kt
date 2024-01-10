@@ -6,6 +6,7 @@ import com.wokstym.scheduler.domain.*
 import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.solver.allExistingOverlaps
 import com.wokstym.scheduler.solver.gene.common.GenotypeCacheEvaluator
+import com.wokstym.scheduler.utils.format
 import io.jenetics.*
 import io.jenetics.util.ISeq
 import kotlin.math.exp
@@ -19,16 +20,16 @@ class SimulatedAnnealing(
     private val freezeMinimalChangesPercentage: Double = 0.2,
 
     // indicates how many frozen iterations need to happen to stop annealing
-    private val freezeLimit: Int = 100,
+    private val freezeLimit: Int = 300,
 
     // by how much we increase amount of tries at given temperature
-    private val trialMultiplier: Int = 10,
+    private val trialMultiplier: Int = 2,
 
     // how many changes percentage need to happen to reduce temperature faster
     private val fastReductionMinimalChangesPercentage: Double = 0.7,
 
-    private val fastCoolingFactor: Double = 0.85,
-    private val slowCoolingFactor: Double = 0.99,
+    private val fastCoolingFactor: Double = 0.90,
+    private val slowCoolingFactor: Double = 0.999,
 
     private val bitFlipInsteadOfSwapMutationProbability: Double = 0.8
 
@@ -54,7 +55,10 @@ class SimulatedAnnealing(
             .eval { evaluator.evaluateFromGenotype(it) }
     }
 
-    override fun calculateSchedule(students: List<Person>, slots: List<ClassSlot>): Either<Solver.Error, SolverResult> {
+    override fun calculateSchedule(studentss: List<Person>, slotss: List<ClassSlot>): Either<Solver.Error, SolverResult> {
+        val slots = slotss.filter { it.name.contains("-") }
+        val students = studentss.map { it.copy(slotsToFulfill=it.slotsToFulfill.filterKeys { it.contains("-") }) }
+
         val overlaps = allExistingOverlaps(slots)
         val evaluator = GenotypeCacheEvaluator(overlaps, slots, students, 80, false)
 
@@ -63,6 +67,8 @@ class SimulatedAnnealing(
 
 
         var iterations = 0L
+
+        println( trialMultiplier * variablesCount)
 
         val (result, timeTaken) = measureTimedValue {
             var freezeCount = 0
@@ -90,7 +96,7 @@ class SimulatedAnnealing(
                         changes += 1
                         current = neighbour
 
-                    } else {
+                    } else if(neighbour.fitness() < current.fitness() || neighbour.genotype() != current.genotype()) {
                         val acceptanceProbability = exp(-(current.fitness() - neighbour.fitness()) / temperature)
 
                         if (acceptanceProbability > Random.nextDouble()) {
@@ -106,7 +112,7 @@ class SimulatedAnnealing(
                     fastCoolingFactor
                 else
                     slowCoolingFactor
-//                println("Temperature: ${temperature.format(2)}, best cost: ${best.fitness()}, current cost: ${current.fitness()}, $freezeCount $changesPercentage")
+                println("Temperature: ${temperature.format(2)}, best cost: ${best.fitness()}, current cost: ${current.fitness()}, $freezeCount $changesPercentage")
 
                 if (changesPercentage < freezeMinimalChangesPercentage)
                     freezeCount += 1
@@ -117,6 +123,7 @@ class SimulatedAnnealing(
             best
         }
 
+        println(result)
 
         val classesWithPeopleAssigned = evaluator.transformGenotype(result.genotype())
         val (_, violations) = evaluator.evaluateWithViolations(

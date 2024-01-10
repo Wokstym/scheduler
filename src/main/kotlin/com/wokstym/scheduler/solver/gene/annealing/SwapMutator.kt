@@ -82,10 +82,16 @@ class CustomSwapMutator<C : Comparable<C>>(
         firstGenotype: Chromosome<BitGene>,
         secondGenotype: Chromosome<BitGene>
     ): Pair<Chromosome<BitGene>, Chromosome<BitGene>> {
+        if (firstGenotype == secondGenotype) {
+            return firstGenotype to secondGenotype
+        }
+
         val firstGenes = MSeq.of(firstGenotype)
         val secondGenes = MSeq.of(secondGenotype)
 
-        val position = RandomGenerator.getDefault().nextInt(firstGenotype.length())
+        val differentIndexes = (0..<firstGenes.length()).filter { firstGenes[it] != secondGenes[it] }
+
+        val position = differentIndexes[RandomGenerator.getDefault().nextInt(differentIndexes.size)]
 
         val old = firstGenes[position]
         firstGenes[position] = secondGenes[position]

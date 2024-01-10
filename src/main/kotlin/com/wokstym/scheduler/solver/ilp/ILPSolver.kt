@@ -34,7 +34,7 @@ class ILPSolver : Solver {
         ensureSlotCapacity(slots, model, students, db)
         ensureNoOverlappingSlots(slots, students, model, db)
         ensureStudentBeAssignedToCorrectAmountOfClasses(students, slotsByName, model, db)
-        ensureDifferentSubjectsSameDay(students, slotsByName, model, db)
+//        ensureDifferentSubjectsSameDay(students, slotsByName, model, db)
 
         // TODO: Student może mieć maksymalnie jedne zajęcia z danego przedmiotu jednego dnia.
 

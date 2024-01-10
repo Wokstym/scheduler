@@ -1,0 +1,238 @@
+{
+  "slots": [
+    {
+      "id": 1,
+      "name": "Podstawy Mechaniki",
+      "day": "MONDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 2,
+      "name": "Systemy operacyjne i sieci komputerowe - Lab",
+      "day": "MONDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 13,
+      "groups": 2
+    },
+    {
+      "id": 3,
+      "name": "Systemy operacyjne i sieci komputerowe - Lab",
+      "day": "MONDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 13,
+      "groups": 2
+    },
+    {
+      "id": 4,
+      "name": "Systemy operacyjne i sieci komputerowe - Lab",
+      "day": "MONDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 13,
+      "groups": 1
+    },
+    {
+      "id": 5,
+      "name": "Systemy operacyjne i sieci komputerowe - Lab",
+      "day": "MONDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 13,
+      "groups": 1
+    },
+    {
+      "id": 6,
+      "name": "Podstawy programowania",
+      "day": "TUESDAY",
+      "startTime": "08:15",
+      "endTime": "10:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 7,
+      "name": "Podstawy Mechaniki - Ćw",
+      "day": "TUESDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 8,
+      "name": "Podstawy programowania - Proj",
+      "day": "TUESDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 9,
+      "name": "Podstawy programowania - Proj",
+      "day": "TUESDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 10,
+      "name": "Podstawy Mechaniki - Ćw",
+      "day": "TUESDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 11,
+      "name": "Algebra liniowa z geometrią",
+      "day": "TUESDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 12,
+      "name": "Podstawy programowania - Proj",
+      "day": "TUESDAY",
+      "startTime": "16:15",
+      "endTime": "18:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 13,
+      "name": "Analiza matematyczna - Ćw",
+      "day": "WEDNESDAY",
+      "startTime": "08:15",
+      "endTime": "10:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 14,
+      "name": "Podstawy teorii mnogości i matematyki dyskretnej",
+      "day": "WEDNESDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 15,
+      "name": "Analiza matematyczna - Ćw",
+      "day": "WEDNESDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 16,
+      "name": "Algebra liniowa z geometrią - Ćw",
+      "day": "WEDNESDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 17,
+      "name": "Analiza matematyczna",
+      "day": "WEDNESDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 22,
+      "name": "Podstawy programowania - Lab",
+      "day": "WEDNESDAY",
+      "startTime": "16:15",
+      "endTime": "18:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 23,
+      "name": "Fizyka",
+      "day": "THURSDAY",
+      "startTime": "08:15",
+      "endTime": "10:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 24,
+      "name": "Analiza matematyczna",
+      "day": "THURSDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 25,
+      "name": "Algebra liniowa z geometrią - Ćw",
+      "day": "THURSDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 26,
+      "name": "Systemy operacyjne i sieci komputerowe",
+      "day": "THURSDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 27,
+      "name": "Fizyka - Lab",
+      "day": "FRIDAY",
+      "startTime": "11:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 28,
+      "name": "Fizyka - Lab",
+      "day": "FRIDAY",
+      "startTime": "11:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 29,
+      "name": "Podstawy programowania - Lab",
+      "day": "FRIDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 30,
+      "name": "Podstawy programowania - Proj",
+      "day": "FRIDAY",
+      "startTime": "16:15",
+      "endTime": "18:00",
+      "seats": 25,
+      "groups": 2
+    }
+  ]
+}

@@ -30,7 +30,7 @@ class CpSatSolver : Solver {
         ensureSlotCapacity(slots, students, db, model)
         ensureNoOverlappingSlots(slots, students, db, model)
         ensureStudentBeAssignedToCorrectAmountOfClasses(students, slotsByName, db, model)
-        ensureDifferentSubjectsSameDay(students, slotsByName, db, model)
+//        ensureDifferentSubjectsSameDay(students, slotsByName, db, model)
 
         // TODO: Student może mieć maksymalnie jedne zajęcia z danego przedmiotu jednego dnia.
 

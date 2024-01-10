@@ -33,7 +33,7 @@ class GenotypeCacheEvaluator(
 
     fun transformGenotype(
         genotype: Genotype<BitGene>
-    ) = genotype.map { it.`as`(BitChromosome::class.java) }
+    ): List<ClassWithPeopleAssigned> = genotype.map { it.`as`(BitChromosome::class.java) }
         .mapIndexed { index, chromosome ->
             ClassWithPeopleAssigned(
                 slots[index],
@@ -42,6 +42,9 @@ class GenotypeCacheEvaluator(
                 }
             )
         }
+
+
+
 
     fun evaluateWithViolations(
         assignedSlots: List<ClassWithPeopleAssigned>,
@@ -59,12 +62,11 @@ class GenotypeCacheEvaluator(
         var fitness = 0
 
 
-        // TODO: Student może mieć maksymalnie jedne zajęcia z danego przedmiotu jednego dnia.
 
         // Each slot is assigned to at most seats available.
         for (assignedSlot in assignedSlots) {
             if (assignedSlot.classSlot.seats < assignedSlot.people.size) {
-                fitness -= violationWeight
+                fitness -= violationWeight * (assignedSlot.people.size - assignedSlot.classSlot.seats)
 
                 if (addViolationDetails)
                     violations.add("Too many students in class ${assignedSlot.classSlot}")
@@ -119,16 +121,16 @@ class GenotypeCacheEvaluator(
                 violations
             )
 
-            for ((name, slotsWithSameName) in groupedByName) {
-                val groupedByDay = slotsWithSameName.groupBy { it.day }
-                    .filter { it.value.size > 1 }
-
-                for ((day, incorrectSlots) in groupedByDay) {
-                    fitness -= violationWeight * (incorrectSlots.size - 1)
-                    if (addViolationDetails)
-                        violations.add("Student $students has on $day multiple $name classes")
-                }
-            }
+//            for ((name, slotsWithSameName) in groupedByName) {
+//                val groupedByDay = slotsWithSameName.groupBy { it.day }
+//                    .filter { it.value.size > 1 }
+//
+//                for ((day, incorrectSlots) in groupedByDay) {
+//                    fitness -= violationWeight * (incorrectSlots.size - 1)
+//                    if (addViolationDetails)
+//                        violations.add("Student $students has on $day multiple $name classes")
+//                }
+//            }
 
         }
 

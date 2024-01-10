@@ -1,0 +1,1740 @@
+{
+  "slots": [
+    {
+      "id": 1,
+      "name": "Podstawy Mechaniki",
+      "day": "MONDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 2,
+      "name": "Systemy operacyjne i sieci komputerowe - Lab",
+      "day": "MONDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 13,
+      "groups": 2
+    },
+    {
+      "id": 3,
+      "name": "Systemy operacyjne i sieci komputerowe - Lab",
+      "day": "MONDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 13,
+      "groups": 2
+    },
+    {
+      "id": 4,
+      "name": "Systemy operacyjne i sieci komputerowe - Lab",
+      "day": "MONDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 13,
+      "groups": 1
+    },
+    {
+      "id": 5,
+      "name": "Systemy operacyjne i sieci komputerowe - Lab",
+      "day": "MONDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 13,
+      "groups": 1
+    },
+    {
+      "id": 6,
+      "name": "Podstawy programowania",
+      "day": "TUESDAY",
+      "startTime": "08:15",
+      "endTime": "10:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 7,
+      "name": "Podstawy Mechaniki - Ćw",
+      "day": "TUESDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 8,
+      "name": "Podstawy programowania - Proj",
+      "day": "TUESDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 9,
+      "name": "Podstawy programowania - Proj",
+      "day": "TUESDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 10,
+      "name": "Podstawy Mechaniki - Ćw",
+      "day": "TUESDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 11,
+      "name": "Algebra liniowa z geometrią",
+      "day": "TUESDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 12,
+      "name": "Podstawy programowania - Proj",
+      "day": "TUESDAY",
+      "startTime": "16:15",
+      "endTime": "18:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 13,
+      "name": "Analiza matematyczna - Ćw",
+      "day": "WEDNESDAY",
+      "startTime": "08:15",
+      "endTime": "10:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 14,
+      "name": "Podstawy teorii mnogości i matematyki dyskretnej",
+      "day": "WEDNESDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 15,
+      "name": "Analiza matematyczna - Ćw",
+      "day": "WEDNESDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 16,
+      "name": "Algebra liniowa z geometrią - Ćw",
+      "day": "WEDNESDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 17,
+      "name": "Analiza matematyczna",
+      "day": "WEDNESDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 22,
+      "name": "Podstawy programowania - Lab",
+      "day": "WEDNESDAY",
+      "startTime": "16:15",
+      "endTime": "18:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 23,
+      "name": "Fizyka",
+      "day": "THURSDAY",
+      "startTime": "08:15",
+      "endTime": "10:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 24,
+      "name": "Analiza matematyczna",
+      "day": "THURSDAY",
+      "startTime": "10:15",
+      "endTime": "12:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 25,
+      "name": "Algebra liniowa z geometrią - Ćw",
+      "day": "THURSDAY",
+      "startTime": "12:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 26,
+      "name": "Systemy operacyjne i sieci komputerowe",
+      "day": "THURSDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 50,
+      "groups": 0
+    },
+    {
+      "id": 27,
+      "name": "Fizyka - Lab",
+      "day": "FRIDAY",
+      "startTime": "11:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 1
+    },
+    {
+      "id": 28,
+      "name": "Fizyka - Lab",
+      "day": "FRIDAY",
+      "startTime": "11:15",
+      "endTime": "14:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 29,
+      "name": "Podstawy programowania - Lab",
+      "day": "FRIDAY",
+      "startTime": "14:15",
+      "endTime": "16:00",
+      "seats": 25,
+      "groups": 2
+    },
+    {
+      "id": 30,
+      "name": "Podstawy programowania - Proj",
+      "day": "FRIDAY",
+      "startTime": "16:15",
+      "endTime": "18:00",
+      "seats": 25,
+      "groups": 2
+    }
+  ],
+  "students": [
+    {
+      "id": 1,
+      "name": "Alojza",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 7,
+        "10": 5,
+        "8": 8,
+        "13": 5,
+        "25": 5,
+        "29": 6,
+        "28": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 2,
+      "name": "Leokadiusz",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 6,
+        "7": 5,
+        "8": 8,
+        "13": 7,
+        "16": 7,
+        "22": 8,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 3,
+      "name": "Nataniel",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 7,
+        "7": 7,
+        "9": 7,
+        "13": 5,
+        "16": 7,
+        "22": 5,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 4,
+      "name": "Zygfryda",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "5": 6,
+        "7": 5,
+        "8": 8,
+        "13": 7,
+        "16": 6,
+        "29": 7,
+        "27": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 5,
+      "name": "Maurycjusz",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 5,
+        "10": 6,
+        "9": 6,
+        "13": 5,
+        "25": 7,
+        "29": 5,
+        "27": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 6,
+      "name": "Gniewomira",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 6,
+        "7": 7,
+        "9": 8,
+        "13": 5,
+        "16": 6,
+        "29": 6,
+        "27": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 7,
+      "name": "Leoncja",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 6,
+        "7": 8,
+        "9": 5,
+        "15": 7,
+        "16": 7,
+        "22": 5,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 8,
+      "name": "Symplicjusz",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "5": 6,
+        "7": 7,
+        "8": 6,
+        "13": 8,
+        "16": 6,
+        "29": 5,
+        "28": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 9,
+      "name": "Bernadeta",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 7,
+        "7": 7,
+        "8": 5,
+        "13": 7,
+        "25": 7,
+        "22": 6,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 10,
+      "name": "Maksymilian",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 5,
+        "10": 6,
+        "8": 5,
+        "15": 6,
+        "16": 6,
+        "22": 5,
+        "28": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 11,
+      "name": "Norman",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 5,
+        "7": 7,
+        "8": 6,
+        "13": 7,
+        "16": 5,
+        "22": 5,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 12,
+      "name": "Cezaryna",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 7,
+        "7": 6,
+        "9": 5,
+        "15": 7,
+        "25": 5,
+        "29": 7,
+        "28": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 13,
+      "name": "Dżamil",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 6,
+        "7": 8,
+        "8": 5,
+        "15": 7,
+        "25": 6,
+        "22": 7,
+        "27": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 14,
+      "name": "Marin",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 6,
+        "7": 8,
+        "9": 6,
+        "13": 5,
+        "16": 5,
+        "22": 8,
+        "28": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 15,
+      "name": "Myślimir",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 6,
+        "10": 5,
+        "8": 8,
+        "13": 8,
+        "16": 6,
+        "22": 7,
+        "28": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 16,
+      "name": "Samir",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 8,
+        "7": 8,
+        "8": 5,
+        "13": 5,
+        "25": 6,
+        "29": 5,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 17,
+      "name": "Adriana",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "5": 7,
+        "7": 7,
+        "8": 7,
+        "13": 7,
+        "16": 5,
+        "22": 5,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 18,
+      "name": "Dajmira",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "5": 5,
+        "7": 5,
+        "8": 7,
+        "15": 6,
+        "16": 5,
+        "22": 8,
+        "27": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 19,
+      "name": "Edwin",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 7,
+        "7": 5,
+        "8": 7,
+        "13": 6,
+        "25": 6,
+        "29": 7,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 20,
+      "name": "Godfryd",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 8,
+        "7": 7,
+        "8": 7,
+        "13": 7,
+        "16": 7,
+        "29": 7,
+        "28": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 21,
+      "name": "Krzesisław",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 7,
+        "10": 7,
+        "8": 8,
+        "15": 7,
+        "25": 7,
+        "29": 5,
+        "27": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 22,
+      "name": "Juri",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 8,
+        "7": 5,
+        "9": 7,
+        "13": 7,
+        "16": 5,
+        "22": 8,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 23,
+      "name": "Sława",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 7,
+        "7": 6,
+        "8": 7,
+        "15": 7,
+        "25": 7,
+        "29": 8,
+        "27": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 24,
+      "name": "Pafnucy",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 8,
+        "7": 8,
+        "8": 8,
+        "15": 5,
+        "16": 5,
+        "29": 5,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 25,
+      "name": "Ernestyna",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 5,
+        "10": 5,
+        "9": 5,
+        "13": 8,
+        "25": 6,
+        "29": 6,
+        "27": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 26,
+      "name": "Lilianna",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 7,
+        "10": 7,
+        "9": 8,
+        "15": 5,
+        "16": 7,
+        "29": 5,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 27,
+      "name": "Konrad",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 5,
+        "10": 7,
+        "8": 5,
+        "13": 8,
+        "25": 6,
+        "22": 6,
+        "28": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 28,
+      "name": "Halina",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 5,
+        "7": 5,
+        "9": 8,
+        "13": 5,
+        "16": 6,
+        "29": 5,
+        "27": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 29,
+      "name": "Dzwonimierz",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 7,
+        "7": 7,
+        "9": 5,
+        "13": 8,
+        "16": 5,
+        "29": 6,
+        "27": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 30,
+      "name": "Tybilla",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 7,
+        "10": 6,
+        "9": 5,
+        "13": 7,
+        "16": 6,
+        "29": 8,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 31,
+      "name": "Marlena",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "5": 7,
+        "7": 7,
+        "8": 8,
+        "13": 5,
+        "16": 5,
+        "22": 6,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 32,
+      "name": "Zuzanna",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 6,
+        "7": 7,
+        "9": 7,
+        "13": 6,
+        "16": 5,
+        "29": 8,
+        "27": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 33,
+      "name": "Wiesława",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 6,
+        "7": 5,
+        "8": 7,
+        "13": 6,
+        "16": 8,
+        "29": 7,
+        "28": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 34,
+      "name": "Emil",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 7,
+        "7": 8,
+        "8": 8,
+        "13": 7,
+        "16": 8,
+        "29": 7,
+        "28": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 35,
+      "name": "Nitara",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 7,
+        "10": 6,
+        "8": 5,
+        "13": 5,
+        "16": 5,
+        "22": 6,
+        "27": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 36,
+      "name": "Gracjan",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 5,
+        "7": 6,
+        "9": 5,
+        "13": 6,
+        "16": 7,
+        "29": 7,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 37,
+      "name": "Rachela",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 7,
+        "7": 6,
+        "9": 7,
+        "15": 5,
+        "16": 7,
+        "22": 7,
+        "28": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 38,
+      "name": "Zbigniew",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 5,
+        "7": 5,
+        "8": 5,
+        "15": 6,
+        "25": 8,
+        "22": 6,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 39,
+      "name": "Sulisława",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 7,
+        "7": 6,
+        "8": 8,
+        "13": 8,
+        "25": 8,
+        "29": 5,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 40,
+      "name": "Norma",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 5,
+        "10": 8,
+        "8": 7,
+        "15": 8,
+        "16": 8,
+        "22": 8,
+        "28": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 41,
+      "name": "Leonora",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 8,
+        "7": 6,
+        "8": 7,
+        "13": 5,
+        "16": 6,
+        "29": 8,
+        "28": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 42,
+      "name": "Serwacy",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 7,
+        "7": 6,
+        "8": 7,
+        "13": 7,
+        "16": 8,
+        "22": 5,
+        "27": 8
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 43,
+      "name": "Adelajda",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 5,
+        "7": 8,
+        "9": 7,
+        "13": 8,
+        "25": 7,
+        "29": 6,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 44,
+      "name": "Herman",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 7,
+        "10": 8,
+        "8": 5,
+        "13": 7,
+        "25": 6,
+        "29": 8,
+        "28": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 45,
+      "name": "Ambroży",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "4": 7,
+        "7": 8,
+        "9": 5,
+        "13": 7,
+        "16": 5,
+        "22": 8,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 46,
+      "name": "Przemysł",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 7,
+        "7": 6,
+        "9": 7,
+        "15": 7,
+        "25": 7,
+        "22": 8,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 47,
+      "name": "Chwalimir",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "3": 8,
+        "7": 7,
+        "8": 7,
+        "15": 7,
+        "25": 8,
+        "29": 8,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 48,
+      "name": "Nikodem",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "5": 6,
+        "7": 5,
+        "8": 5,
+        "15": 5,
+        "16": 5,
+        "22": 8,
+        "27": 7
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 49,
+      "name": "Świetlana",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "2": 5,
+        "7": 6,
+        "8": 8,
+        "13": 6,
+        "25": 8,
+        "29": 5,
+        "27": 5
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    },
+    {
+      "id": 50,
+      "name": "Arabella",
+      "blockedSlotsId": [],
+      "prefersSlots": {
+        "5": 5,
+        "7": 8,
+        "8": 5,
+        "15": 5,
+        "16": 7,
+        "29": 6,
+        "27": 6
+      },
+      "slotsToFulfill": {
+        "Podstawy Mechaniki": 1,
+        "Podstawy programowania": 1,
+        "Algebra liniowa z geometrią": 1,
+        "Podstawy teorii mnogości i matematyki dyskretnej": 1,
+        "Analiza matematyczna": 2,
+        "Fizyka": 1,
+        "Systemy operacyjne i sieci komputerowe": 1,
+        "Algebra liniowa z geometrią - Ćw": 1,
+        "Analiza matematyczna - Ćw": 1,
+        "Fizyka - Lab": 1,
+        "Podstawy Mechaniki - Ćw": 1,
+        "Podstawy programowania - Lab": 1,
+        "Podstawy programowania - Proj": 2,
+        "Systemy operacyjne i sieci komputerowe - Lab": 1
+      }
+    }
+  ]
+}
