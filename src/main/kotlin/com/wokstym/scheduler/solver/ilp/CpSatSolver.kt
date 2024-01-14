@@ -5,8 +5,8 @@ import arrow.core.left
 import arrow.core.right
 import com.google.ortools.Loader
 import com.google.ortools.sat.*
-import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.domain.*
+import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.solver.overlappingSlotsPairs
 
 class CpSatSolver : Solver {
@@ -30,9 +30,6 @@ class CpSatSolver : Solver {
         ensureSlotCapacity(slots, students, db, model)
         ensureNoOverlappingSlots(slots, students, db, model)
         ensureStudentBeAssignedToCorrectAmountOfClasses(students, slotsByName, db, model)
-//        ensureDifferentSubjectsSameDay(students, slotsByName, db, model)
-
-        // TODO: Student może mieć maksymalnie jedne zajęcia z danego przedmiotu jednego dnia.
 
         val happiness = createHappinessExpression(students, slots, db)
         model.maximize(happiness)
@@ -145,33 +142,6 @@ class CpSatSolver : Solver {
 
                 model.addEquality(numShiftsWorked, amount.toLong())
 
-            }
-        }
-    }
-
-    private fun ensureDifferentSubjectsSameDay(
-        students: List<Person>,
-        slotsByName: Map<SlotName, List<ClassSlot>>,
-        db: SolverVariablesDb<Literal>,
-        model: CpModel
-    ) {
-        for (person in students) {
-
-            for ((_, slotsWithCurrentName) in slotsByName) {
-                val slotsByDay = slotsWithCurrentName.groupBy { it.day }
-                    .values
-                    .filter { it.size > 1 }
-
-                for (slots in slotsByDay) {
-                    val work = ArrayList<Literal>()
-                    for (slot in slots) {
-                        val literal = db.get(person.id, slot)
-                        if (literal != null) {
-                            work.add(literal)
-                        }
-                    }
-                    model.addAtMostOne(work)
-                }
             }
         }
     }

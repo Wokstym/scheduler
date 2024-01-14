@@ -5,9 +5,14 @@ import arrow.core.right
 import com.wokstym.scheduler.domain.*
 import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.solver.allExistingOverlaps
+import com.wokstym.scheduler.solver.gene.common.CustomSwapMutator
 import com.wokstym.scheduler.solver.gene.common.GenotypeCacheEvaluator
+import com.wokstym.scheduler.solver.gene.common.createRandomStarterGenotype
+import com.wokstym.scheduler.solver.gene.common.filterLectures
 import com.wokstym.scheduler.utils.format
-import io.jenetics.*
+import io.jenetics.BitGene
+import io.jenetics.Genotype
+import io.jenetics.Phenotype
 import io.jenetics.util.ISeq
 import kotlin.math.exp
 import kotlin.math.pow
@@ -17,33 +22,26 @@ import kotlin.time.measureTimedValue
 class SimulatedAnnealing(
 
     // indicates how many changes have to happen at given temperature cycle to count the iteration as frozen
-    private val freezeMinimalChangesPercentage: Double = 0.2,
+    private val freezeMinimalChangesPercentage: Double = 0.1,
 
     // indicates how many frozen iterations need to happen to stop annealing
     private val freezeLimit: Int = 300,
 
     // by how much we increase amount of tries at given temperature
-    private val trialMultiplier: Int = 2,
+    private val trialMultiplier: Int = 10,
 
     // how many changes percentage need to happen to reduce temperature faster
     private val fastReductionMinimalChangesPercentage: Double = 0.7,
 
-    private val fastCoolingFactor: Double = 0.90,
-    private val slowCoolingFactor: Double = 0.999,
+    private val fastCoolingFactor: Double = 0.80,
+    private val slowCoolingFactor: Double = 0.99,
 
-    private val bitFlipInsteadOfSwapMutationProbability: Double = 0.8
+    private val bitFlipInsteadOfSwapMutationProbability: Double = 0.5
 
 ) : Solver {
     override val algorithm = Solver.Algorithm.SA
 
     private val mutator = CustomSwapMutator<Int>(bitFlipInsteadOfSwapMutationProbability, mutationProbability = 1.0)
-
-    private fun createStarterGenotype(students: List<Person>, slots: List<ClassSlot>): Genotype<BitGene> {
-        // Random bits
-        return Genotype.of(
-            slots.map { BitChromosome.of(students.size, 0.5) }
-        )
-    }
 
     private fun mutate(
         evaluator: GenotypeCacheEvaluator,
@@ -55,20 +53,19 @@ class SimulatedAnnealing(
             .eval { evaluator.evaluateFromGenotype(it) }
     }
 
-    override fun calculateSchedule(studentss: List<Person>, slotss: List<ClassSlot>): Either<Solver.Error, SolverResult> {
-        val slots = slotss.filter { it.name.contains("-") }
-        val students = studentss.map { it.copy(slotsToFulfill=it.slotsToFulfill.filterKeys { it.contains("-") }) }
+    override fun calculateSchedule(students: List<Person>, slots: List<ClassSlot>): Either<Solver.Error, SolverResult> {
+        val (studentsWithoutLectures, slotsWithoutLectures) = filterLectures(students, slots)
 
-        val overlaps = allExistingOverlaps(slots)
-        val evaluator = GenotypeCacheEvaluator(overlaps, slots, students, 80, false)
+        val overlaps = allExistingOverlaps(slotsWithoutLectures)
+        val evaluator = GenotypeCacheEvaluator(overlaps, slotsWithoutLectures, studentsWithoutLectures, 80, false)
 
-        val starterGenotype = createStarterGenotype(students, slots)
-        val variablesCount = slots.size * students.size
+        val starterGenotype = createRandomStarterGenotype(studentsWithoutLectures, slotsWithoutLectures)
+        val variablesCount = slotsWithoutLectures.size * studentsWithoutLectures.size
 
 
         var iterations = 0L
 
-        println( trialMultiplier * variablesCount)
+        println(trialMultiplier * variablesCount)
 
         val (result, timeTaken) = measureTimedValue {
             var freezeCount = 0
@@ -96,7 +93,7 @@ class SimulatedAnnealing(
                         changes += 1
                         current = neighbour
 
-                    } else if(neighbour.fitness() < current.fitness() || neighbour.genotype() != current.genotype()) {
+                    } else if (neighbour.fitness() < current.fitness() || neighbour.genotype() != current.genotype()) {
                         val acceptanceProbability = exp(-(current.fitness() - neighbour.fitness()) / temperature)
 
                         if (acceptanceProbability > Random.nextDouble()) {
@@ -131,7 +128,7 @@ class SimulatedAnnealing(
             true
         )
         return SolverResult(
-            classesWithPeopleAssigned,
+            evaluator.addLectures(classesWithPeopleAssigned, slots),
             Statistics(
                 timeTaken.inWholeMilliseconds / 1000.0,
                 mapOf(
@@ -161,7 +158,7 @@ class SimulatedAnnealing(
 
     }
 
-    private val K = 5
+    private val k = 5
     private val n = 100
 
     private fun calculateInitialTemperature(
@@ -176,8 +173,7 @@ class SimulatedAnnealing(
 
         val variance = allRandomFitness.sumOf { (it - mean).pow(2) } / n
 
-
-        val d = K * variance
+        val d = k * variance
         println("Initial temperature: $d")
         return d
     }

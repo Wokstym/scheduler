@@ -10,14 +10,16 @@ interface Solver {
         CP_SAT,
         ILP,
         GENETIC,
-        SA
+        SA,
+        SWARM
     }
 
     sealed class Error(val message: String) {
-        class NoViableSolution(): Error("Provided data did not allow to create a solution that does not brake any hard constraints")
+        class NoViableSolution :
+            Error("Provided data did not allow to create a solution that does not brake any hard constraints")
     }
 
     val algorithm: Algorithm
-    fun calculateSchedule(students: List<Person>, slots: List<ClassSlot>): Either<Error, SolverResult>
 
+    fun calculateSchedule(students: List<Person>, slots: List<ClassSlot>): Either<Error, SolverResult>
 }

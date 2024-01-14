@@ -43,7 +43,20 @@ class GenotypeCacheEvaluator(
             )
         }
 
+    fun addLectures(
+        assigned: List<ClassWithPeopleAssigned>,
+        originalSlots: List<ClassSlot>
+    ): List<ClassWithPeopleAssigned> {
+        val lectures = originalSlots.filter { !it.name.contains("-") }
 
+        return assigned + lectures.map {
+            ClassWithPeopleAssigned(
+                classSlot = it,
+                people = students
+            )
+        }
+
+    }
 
 
     fun evaluateWithViolations(
@@ -61,51 +74,24 @@ class GenotypeCacheEvaluator(
 
         var fitness = 0
 
+        fitness -= ensureSlotCapacity(assignedSlots, addViolationDetails, violations)
+        fitness -= ensureNoBlockedSlots(peopleToSlots, addViolationDetails, violations)
+        fitness -= ensureNoOverlappingSlots(peopleToSlots, addViolationDetails, violations)
+        fitness -= ensureStudentBeAssignedToCorrectAmountOfClasses(peopleToSlots, addViolationDetails, violations)
 
+        fitness += calculateHappiness(peopleToSlots)
 
-        // Each slot is assigned to at most seats available.
-        for (assignedSlot in assignedSlots) {
-            if (assignedSlot.classSlot.seats < assignedSlot.people.size) {
-                fitness -= violationWeight * (assignedSlot.people.size - assignedSlot.classSlot.seats)
+        return fitness to violations.sorted()
 
-                if (addViolationDetails)
-                    violations.add("Too many students in class ${assignedSlot.classSlot}")
-            }
-        }
+    }
 
-        // No blocked slots
-        for ((students, slots) in peopleToSlots) {
-            for (slot in slots) {
-                if (students.blockedSlotsId.contains(slot.id)) {
-                    fitness -= violationWeight
-                    if (addViolationDetails)
-                        violations.add("Student $students was assigned to blocked slot $slot")
-                }
-            }
-        }
-
-        // Each student has at most one overlapping slot.
-        for ((students, slots) in peopleToSlots) {
-            val ids = slots.map { it.id }.toSet()
-
-            val overlappingSlotsForThatStudent = slots
-                .filter { overlaps.containsKey(it.id) }
-                .map { it.id }
-                .flatMap {
-                    val o = overlaps[it]!!.filter { ids.contains(it) }
-                    if (o.isNotEmpty()) {
-                        o + it
-                    }
-                    o
-                }
-
-            fitness -= violationWeight * overlappingSlotsForThatStudent.size
-            if (overlappingSlotsForThatStudent.isNotEmpty() && addViolationDetails)
-                violations.add("Student $students has overlapping slots")
-        }
-
-
-        // Each student get at most as many slots as he is assigned to for every subject
+    // Each student get at most as many slots as he is assigned to for every subject
+    private fun ensureStudentBeAssignedToCorrectAmountOfClasses(
+        peopleToSlots: List<Pair<Person, List<ClassSlot>>>,
+        addViolationDetails: Boolean,
+        violations: ArrayList<String>
+    ): Int {
+        var fitnessPenalty = 0
         for ((students, slots) in peopleToSlots) {
             val groupedByName = slots.groupBy { it.name }
             val assigned: Set<Pair<SlotName, Amount>> = groupedByName
@@ -113,42 +99,95 @@ class GenotypeCacheEvaluator(
                 .map { it.key to it.value }
                 .toSet()
 
-            fitness -= calculatePenaltyForNotAssigningDesiredSubjectAmount(
+            fitnessPenalty += calculatePenaltyForNotAssigningDesiredSubjectAmount(
                 students,
                 assigned,
-                fitness,
                 addViolationDetails,
                 violations
             )
-
-//            for ((name, slotsWithSameName) in groupedByName) {
-//                val groupedByDay = slotsWithSameName.groupBy { it.day }
-//                    .filter { it.value.size > 1 }
-//
-//                for ((day, incorrectSlots) in groupedByDay) {
-//                    fitness -= violationWeight * (incorrectSlots.size - 1)
-//                    if (addViolationDetails)
-//                        violations.add("Student $students has on $day multiple $name classes")
-//                }
-//            }
-
         }
+        return fitnessPenalty
+    }
 
-        // Add happiness
+    private fun calculateHappiness(
+        peopleToSlots: List<Pair<Person, List<ClassSlot>>>
+    ): Int {
+        var happiness = 0
         for ((student, slots) in peopleToSlots) {
             for (slot in slots) {
-                fitness += student.prefersSlots[slot.id] ?: 0
+                happiness += student.prefersSlots[slot.id] ?: 0
             }
         }
+        return happiness
+    }
 
-        return fitness to violations.sorted()
+    // Each student has no overlapping slots.
+    private fun ensureNoOverlappingSlots(
+        peopleToSlots: List<Pair<Person, List<ClassSlot>>>,
+        addViolationDetails: Boolean,
+        violations: ArrayList<String>
+    ): Int {
+        var fitnessPenalty = 0
+        for ((students, slots) in peopleToSlots) {
+            val ids = slots.map { it.id }.toSet()
 
+            val overlappingSlotsForThatStudent = slots
+                .filter { overlaps.containsKey(it.id) }
+                .map { it.id }
+                .flatMap { slotId ->
+                    val o = overlaps[slotId]!!.filter { ids.contains(it) }
+                    if (o.isNotEmpty()) {
+                        o + slotId
+                    }
+                    o
+                }
+
+            fitnessPenalty += violationWeight * overlappingSlotsForThatStudent.size
+            if (overlappingSlotsForThatStudent.isNotEmpty() && addViolationDetails)
+                violations.add("Student $students has overlapping slots")
+        }
+        return fitnessPenalty
+    }
+
+    private fun ensureNoBlockedSlots(
+        peopleToSlots: List<Pair<Person, List<ClassSlot>>>,
+        addViolationDetails: Boolean,
+        violations: ArrayList<String>
+    ): Int {
+        var fitnessPenalty = 0
+        for ((students, slots) in peopleToSlots) {
+            for (slot in slots) {
+                if (students.blockedSlotsId.contains(slot.id)) {
+                    fitnessPenalty += violationWeight
+                    if (addViolationDetails)
+                        violations.add("Student $students was assigned to blocked slot $slot")
+                }
+            }
+        }
+        return fitnessPenalty
+    }
+
+    // Each slot is assigned to at most seats available.
+    private fun ensureSlotCapacity(
+        assignedSlots: List<ClassWithPeopleAssigned>,
+        addViolationDetails: Boolean,
+        violations: ArrayList<String>
+    ): Int {
+        var fitnessPenalty = 0
+        for (assignedSlot in assignedSlots) {
+            if (assignedSlot.classSlot.seats < assignedSlot.people.size) {
+                fitnessPenalty += ((violationWeight * 0.8) * (assignedSlot.people.size - assignedSlot.classSlot.seats)).toInt()
+
+                if (addViolationDetails)
+                    violations.add("Too many students in class ${assignedSlot.classSlot}")
+            }
+        }
+        return fitnessPenalty
     }
 
     private fun calculatePenaltyForNotAssigningDesiredSubjectAmount(
         students: Person,
         assigned: Set<Pair<SlotName, Amount>>,
-        fitness: Int,
         addViolationDetails: Boolean,
         violations: ArrayList<String>
     ): Int {

@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.SerializerProvider
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import com.wokstym.scheduler.utils.format
 import java.io.IOException
-import java.time.LocalDateTime
 import java.time.LocalTime
 
 
@@ -43,13 +42,6 @@ data class Person(
 
     }
 }
-
-data class Event(
-    val title: String,
-    val start: LocalDateTime,
-    val end: LocalDateTime
-)
-
 
 internal class DecimalJsonSerializer : JsonSerializer<Double?>() {
     @Throws(IOException::class, JsonProcessingException::class)

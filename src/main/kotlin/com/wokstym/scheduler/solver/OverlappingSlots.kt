@@ -16,7 +16,7 @@ fun overlappingSlotsPairs(slots: List<ClassSlot>): List<Pair<ClassSlot, ClassSlo
         slotsFromDay.flatMapIndexed { currentIndex, currentSlot ->
             val overlappingSlots = ArrayList<Pair<ClassSlot, ClassSlot>>()
 
-            for (neighbourIndex in (currentIndex + 1) until slotsFromDay.size) {
+            for (neighbourIndex in (currentIndex + 1)..<slotsFromDay.size) {
                 val neighbourSlot = slotsFromDay[neighbourIndex]
                 if (neighbourSlot.startTime >= currentSlot.endTime)
                     break

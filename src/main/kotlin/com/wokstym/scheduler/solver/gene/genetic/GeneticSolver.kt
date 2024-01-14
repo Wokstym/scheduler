@@ -2,45 +2,49 @@ package com.wokstym.scheduler.solver.gene.genetic
 
 import arrow.core.Either
 import arrow.core.right
-import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.domain.*
+import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.solver.allExistingOverlaps
-import com.wokstym.scheduler.solver.gene.annealing.CustomSwapMutator
+import com.wokstym.scheduler.solver.gene.common.CustomSwapMutator
 import com.wokstym.scheduler.solver.gene.common.GenotypeCacheEvaluator
-import io.jenetics.*
+import com.wokstym.scheduler.solver.gene.common.createRandomStarterGenotype
+import com.wokstym.scheduler.solver.gene.common.filterLectures
 import io.jenetics.engine.Engine
 import io.jenetics.engine.EvolutionResult
 import kotlin.time.measureTimedValue
 
 
 class GeneticSolver(
-    private val populationSize: Int = 300,
-    private val eliteSize: Int = 3,
+    private val populationSize: Int = 400,
+    private val eliteSize: Int = 6,
     private val maxGenerations: Long = 1000L,
-    private val mutationProbability: Double = 0.8,
+    private val mutationProbability: Double = 0.9,
     private val violationWeight: Int = 80,
     private val crossoverProbability: Double = 0.1,
 
-
-    private val localSearchNeighboursCount: Int = 10,
-    private val localSearchIterations: Int = 10,
+    private val localSearchNeighboursCount: Int = 20,
+    private val localSearchIterations: Int = 40,
 
     private val cacheFitness: Boolean = true
 ) : Solver {
 
     override val algorithm: Solver.Algorithm = Solver.Algorithm.GENETIC
-    private val crossoverPoints = 2
 
-    override fun calculateSchedule(studentss: List<Person>, slotss: List<ClassSlot>): Either<Solver.Error, SolverResult> {
-        val slots = slotss.filter { it.name.contains("-") }
-        val students = studentss.map { it.copy(slotsToFulfill=it.slotsToFulfill.filterKeys { it.contains("-") }) }
+    override fun calculateSchedule(students: List<Person>, slots: List<ClassSlot>): Either<Solver.Error, SolverResult> {
+        val (studentsWithoutLectures, slotsWithoutLectures) = filterLectures(students, slots)
 
-        val overlaps = allExistingOverlaps(slots)
-        val evaluator = GenotypeCacheEvaluator(overlaps, slots, students, violationWeight, cacheFitness)
+        val overlaps = allExistingOverlaps(slotsWithoutLectures)
+        val evaluator = GenotypeCacheEvaluator(
+            overlaps,
+            slotsWithoutLectures,
+            studentsWithoutLectures,
+            violationWeight,
+            cacheFitness
+        )
 
 
-        val starterGenotype = createStarterGenotype(students, slots)
-        val localSearchParams = LocalSearchParams<BitGene, Int>(
+        val starterGenotype = createRandomStarterGenotype(studentsWithoutLectures, slotsWithoutLectures)
+        val localSearchParams = LocalSearchParams(
             localSearchNeighboursCount,
             localSearchIterations
         ) { gen -> evaluator.evaluateFromGenotype(gen) }
@@ -53,8 +57,7 @@ class GeneticSolver(
             )
             .populationSize(populationSize)
             .selector(CustomEliteLocalSearchSelector(localSearchParams, eliteSize))
-//            .selector(EliteSelector(eliteSize))
-            .alterers(CustomSwapMutator(0.8, mutationProbability))
+            .alterers(CustomSwapMutator(0.5, mutationProbability))
             .build()
 
         val (result, timeTaken) = measureTimedValue {
@@ -73,10 +76,10 @@ class GeneticSolver(
             true
         )
 
-        println("Found best genotype with firtness=$fitness")
+        println("Found best genotype with fitness=$fitness")
 
         return SolverResult(
-            classesWithPeopleAssigned,
+            evaluator.addLectures(classesWithPeopleAssigned, slots),
             Statistics(
                 timeTaken.inWholeMilliseconds / 1000.0,
                 mapOf(
@@ -98,13 +101,6 @@ class GeneticSolver(
                 "cacheFitness" to cacheFitness.toString(),
             )
         ).right()
-    }
-
-    private fun createStarterGenotype(students: List<Person>, slots: List<ClassSlot>): Genotype<BitGene> {
-        // Random bits
-        return Genotype.of(
-            slots.map { BitChromosome.of(students.size, 0.5) }
-        )
     }
 
     private fun calculateHappiness(results: List<ClassWithPeopleAssigned>): Int {

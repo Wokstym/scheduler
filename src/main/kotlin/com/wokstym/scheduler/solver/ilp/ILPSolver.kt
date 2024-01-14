@@ -9,8 +9,8 @@ import com.google.ortools.linearsolver.MPObjective
 import com.google.ortools.linearsolver.MPSolver
 import com.google.ortools.linearsolver.MPSolver.ResultStatus
 import com.google.ortools.linearsolver.MPVariable
-import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.domain.*
+import com.wokstym.scheduler.solver.Solver
 import com.wokstym.scheduler.solver.overlappingSlotsPairs
 
 
@@ -34,9 +34,6 @@ class ILPSolver : Solver {
         ensureSlotCapacity(slots, model, students, db)
         ensureNoOverlappingSlots(slots, students, model, db)
         ensureStudentBeAssignedToCorrectAmountOfClasses(students, slotsByName, model, db)
-//        ensureDifferentSubjectsSameDay(students, slotsByName, model, db)
-
-        // TODO: Student może mieć maksymalnie jedne zajęcia z danego przedmiotu jednego dnia.
 
         val objective: MPObjective = createHapinessObjective(model, students, slots, db)
 
@@ -168,32 +165,6 @@ class ILPSolver : Solver {
                 val secondLiteral = db.get(person.id, secondOverlappingSlot)
                 if (secondLiteral != null) {
                     constraint.setCoefficient(secondLiteral, 1.0)
-                }
-            }
-        }
-    }
-
-    private fun ensureDifferentSubjectsSameDay(
-        students: List<Person>,
-        slotsByName: Map<SlotName, List<ClassSlot>>,
-        model: MPSolver,
-        db: SolverVariablesDb<MPVariable>
-    ) {
-        for (person in students) {
-
-            for ((_, slotsWithCurrentName) in slotsByName) {
-                val slotsByDay = slotsWithCurrentName.groupBy { it.day }
-                    .values
-                    .filter { it.size > 1 }
-
-                for (slots in slotsByDay) {
-                    val constraint: MPConstraint = model.makeConstraint(0.0, 1.0, "")
-                    for (slot in slots) {
-                        val literal = db.get(person.id, slot)
-                        if (literal != null) {
-                            constraint.setCoefficient(literal, 1.0)
-                        }
-                    }
                 }
             }
         }

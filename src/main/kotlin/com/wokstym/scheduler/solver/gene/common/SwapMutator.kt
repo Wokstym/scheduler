@@ -1,10 +1,15 @@
-package com.wokstym.scheduler.solver.gene.annealing
+package com.wokstym.scheduler.solver.gene.common
 
 import io.jenetics.*
 import io.jenetics.util.MSeq
 import java.util.random.RandomGenerator
 import kotlin.random.Random
 
+/**
+ * Custom mutator that either:
+ * - flips random single bit either assigning or kicking student from given classes
+ * - swaps assigment of random student for 2 random classes, e.g. 111|010 can become 011|110
+ */
 class CustomSwapMutator<C : Comparable<C>>(
     // How likely we are to bit flip or swap bits between classes
     private val probabilityOfBitFlip: Double = 0.5,

@@ -1,5 +1,6 @@
 package com.wokstym.scheduler.solver.gene.genetic
 
+import com.wokstym.scheduler.solver.gene.common.CustomSwapMutator
 import io.jenetics.*
 import io.jenetics.util.ISeq
 import io.jenetics.util.Seq
@@ -7,30 +8,30 @@ import kotlin.math.max
 import kotlin.math.min
 
 
-data class LocalSearchParams<G : Gene<*, G>, C : Comparable<C>>(
+data class LocalSearchParams<C : Comparable<C>>(
     val neighboursCount: Int,
     val searchIterations: Int,
-    val evaluate: (gen: Genotype<G>) -> C
+    val evaluate: (gen: Genotype<BitGene>) -> C
 )
 
 /**
  * This is a modification of [io.jenetics.EliteSelector] to perform elite local search on copied elite population.
  */
-class CustomEliteLocalSearchSelector<G : Gene<*, G>, C : Comparable<C>>(
-    private val localSearchParams: LocalSearchParams<G, C>,
+class CustomEliteLocalSearchSelector<C : Comparable<C>>(
+    private val localSearchParams: LocalSearchParams<C>,
     private val eliteCount: Int = 1,
-    private val nonEliteSelector: Selector<G, C> = TournamentSelector(3)
-) : Selector<G, C> {
+    private val nonEliteSelector: Selector<BitGene, C> = TournamentSelector(3)
+) : Selector<BitGene, C> {
 
-    private val ELITE_SELECTOR = TruncationSelector<G, C>()
-    private val mutator = SwapMutator<G, C>()
+    private val eliteSelector = TruncationSelector<BitGene, C>()
+    private val mutator = CustomSwapMutator<C>()
 
 
-    private fun ISeq<Phenotype<G,C>>.mutate(generation: Long): ISeq<Phenotype<G, C>> {
+    private fun ISeq<Phenotype<BitGene, C>>.mutate(generation: Long): ISeq<Phenotype<BitGene, C>> {
         return mutator.alter(this, generation).population
     }
 
-    private fun localSearch(initial: Phenotype<G, C>): Phenotype<G, C> {
+    private fun localSearch(initial: Phenotype<BitGene, C>): Phenotype<BitGene, C> {
         val generation = initial.generation()
         var bestSolution = initial
 
@@ -55,10 +56,10 @@ class CustomEliteLocalSearchSelector<G : Gene<*, G>, C : Comparable<C>>(
 
 
     override fun select(
-        population: Seq<Phenotype<G, C>>,
+        population: Seq<Phenotype<BitGene, C>>,
         count: Int,
         opt: Optimize?
-    ): ISeq<Phenotype<G, C>> {
+    ): ISeq<Phenotype<BitGene, C>> {
         require(count >= 0) {
             "Selection count must be greater or equal then zero, but was $count."
         }
@@ -67,7 +68,7 @@ class CustomEliteLocalSearchSelector<G : Gene<*, G>, C : Comparable<C>>(
         }
 
         val ec = min(count.toDouble(), eliteCount.toDouble()).toInt()
-        val elitePopulation = ELITE_SELECTOR.select(population, ec, opt)
+        val elitePopulation = eliteSelector.select(population, ec, opt)
             .map {
                 val x = localSearch(it)
                 x
